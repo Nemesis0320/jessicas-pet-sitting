@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() { return request.auth != null; }
+    function isImage() { return request.resource.contentType.matches('image/.*'); }
+    function under5MB() { return request.resource.size < 5 * 1024 * 1024; }
+
+    // Pet photos - read by anyone signed in (we filter by home in app code),
+    // write by signed-in user, must be an image under 5MB
+    match /pets/{petId}/{file=**} {
+      allow read:  if isSignedIn();
+      allow write: if isSignedIn() && isImage() && under5MB();
+    }
+
+    // Incident photos - same
+    match /incidents/{incidentId}/{file=**} {
+      allow read:  if isSignedIn();
+      allow write: if isSignedIn() && isImage() && under5MB();
+    }
+  }
+}
