@@ -1,3 +1,32 @@
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script>
+
+<!-- Your Firebase initialization -->
+<script type="text/babel">
+  const firebaseConfig = {
+    apiKey: "AIzaSyC-EysJqUh2Jw_h0h-ExEw9SS9yyD2oBkU",
+    authDomain: "jessicas-pet-sitting.firebaseapp.com",
+    projectId: "jessicas-pet-sitting",
+    storageBucket: "jessicas-pet-sitting.firebasestorage.app",
+    messagingSenderId: "931131544623",
+    appId: "1:931131544623:web:de599d503f03e6961962da",
+    measurementId: "G-LRXRDTGXES"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+</script>
+
+<!-- Your existing React/Babel scripts go here -->
+<script type="text/babel" src="app.jsx"></script>
+<script type="text/babel" src="components.jsx"></script>
+<!-- etc -->
+
 <!doctype html>
 <html lang="en">
 <head>
