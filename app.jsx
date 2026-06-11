@@ -1,3 +1,4 @@
+console.log("DEBUGGING: APP.JSX IS LIVE");
 import { useState, useEffect } from "react";
 import {
   auth,
